@@ -1,0 +1,51 @@
+{% load static %}
+<html lang="pl">
+	<head>
+		<link
+			rel="stylesheet"
+			href="{% static 'css/style.css' %}" />
+		<title>Chatbot Medyczny</title>
+	</head>
+	<body>
+		<header>
+			<h1>WIRTUALNA POMOC MEDYCZNA ONLINE 24/7</h1>
+		</header>
+
+		<main>
+			<div class="container">
+				<div id="chat-icon">
+					<i>💬</i>
+				</div>
+
+				<div
+					id="chat-window"
+					style="display: none">
+					<div
+						id="chat-messages"
+						style="height: 300px; overflow-y: auto">
+						<div class="bot-message">
+							Witaj! Jestem wirtualnym chatbotem medycznym, jeżeli masz jakieś
+							problemy zdrowotne, bądź pytanie odnośnie medycyny, to chętnie Ci
+							pomogę.
+						</div>
+						<!-- Tutaj będą pojawiać się wiadomości -->
+					</div>
+
+					<form id="chat-form" method="post">
+						{% csrf_token %}
+						<input type="text" id="chat-input" placeholder="Napisz pytanie..." style="width: 80%"
+							name="user_input" />
+						<button
+							type="submit"
+							style="width: 19%">
+							Wyślij
+						</button>
+					</form>
+				</div>
+			</div>
+		</main>
+
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script src="{% static 'js/script.js' %}"></script>
+	</body>
+</html>
